@@ -29,4 +29,6 @@ public class CarDaoImpl implements CarDao {
     public List<Car> getCarList(int count) {
         return (count >= 0) ? cars.subList(0, Math.min(count, cars.size())) : cars;
     }
+
 }
+
