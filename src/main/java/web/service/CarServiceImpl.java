@@ -1,14 +1,14 @@
-package web.DAO;
+package web.service;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-public class CarDaoImpl implements CarDao {
-
+@Component
+public class CarServiceImpl implements CarService {
     private List<Car> cars;
 
     {
@@ -26,9 +26,14 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
+    public List<Car> getAllCars() {
+        return cars;
+    }
+
+    @Override
     public List<Car> getCarList(int count) {
+
         return (count >= 0) ? cars.subList(0, Math.min(count, cars.size())) : cars;
     }
 
 }
-
